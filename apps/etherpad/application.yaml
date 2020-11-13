@@ -40,4 +40,20 @@ spec:
     placementRef:
       kind: PlacementRule
       name: dev-clusters
+---
+apiVersion: apps.open-cluster-management.io/v1
+kind: Subscription
+metadata:
+  name: test-etherpad-app
+  namespace: etherpad
+  labels:
+    app: etherpad-app
+  annotations:
+    apps.open-cluster-management.io/github-path: resources/etherpad
+spec:
+  channel: etherpad/etherpad-app-latest
+  placement:
+    placementRef:
+      kind: PlacementRule
+      name: test-clusters
 
